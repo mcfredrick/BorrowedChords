@@ -1,0 +1,2 @@
+rootProject.name = 'BorrowedChords'
+include ':app'

@@ -29,6 +29,12 @@ MainComponent::~MainComponent()
     shutdownAudio();
 }
 
+juce::Result MainComponent::onInit()
+{
+	addAndMakeVisible( m_chordTable );
+	return juce::Result::ok();
+}
+	
 //==============================================================================
 void MainComponent::prepareToPlay (int samplesPerBlockExpected, double sampleRate)
 {
@@ -71,9 +77,7 @@ void MainComponent::paint (juce::Graphics& g)
 
 void MainComponent::resized()
 {
-    // This is called when the MainContentComponent is resized.
-    // If you add any child components, this is where you should
-    // update their positions.
+	m_chordTable.setBounds( getLocalBounds().removeFromTop( 100 ) );
 }
 
 }

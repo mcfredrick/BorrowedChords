@@ -23,6 +23,8 @@ namespace view
 	public:
 		virtual ~ComponentBaseT() = default;
 
+		virtual juce::Result onInit() { return juce::Result::ok(); }
+
 	protected:
 		template<typename... Args> // Variadic Template
 		ComponentBaseT( Args&&... args ) : // Rvalue Reference
@@ -30,12 +32,38 @@ namespace view
 		{
 		}
 
-		// Derived components can override virtual juce::Result onInit() to perform initialization outside of the constructor.
-		// Useful when you need to use XCDObject methods during initialization. All view components,
-		// including the main view itself, will have been fully created/constructed by the time
-		// onInit() gets called, so its safe to use any XCDObject method in there.
+		bool isInitialized() const { return m_isInitialized; }
 
-		// onInit is called any time parent hierarchy is changed. So it will be triggered when the view is created.
+		virtual juce::Result initComponentInternal()
+		{
+			return onInit();
+		}
+
+		// Remember to call this base class imlementation if you want
+		// to use the initialization procedure!
+		void parentHierarchyChanged() override { tryInit(); }
+
+	private:
+		void tryInit()
+		{
+			if ( isInitialized() )
+				return; // Already initialized. Move along.
+
+			// If there's a component peer, we know we're actualy on
+			// the desktop. Otherwise, no need to initialize yet.
+			if ( TComponent::getPeer() == nullptr )
+				return;
+
+			// Initialize the component.
+			const auto result = initComponentInternal();
+			if ( result.failed() )
+				throw new std::runtime_error( result.getErrorMessage().toStdString() );
+
+			m_isInitialized = true;
+		}
+
+	private:
+		bool m_isInitialized = false;
 	};
 	
 	//==================================================================================================

@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="Je2Qv7" name="BorrowedChords" projectType="guiapp" useAppConfig="0"
-              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" companyName="dIOtonic">
+              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" companyName="dIOtonic"
+              cppLanguageStandard="17">
   <MAINGROUP id="YxWSVl" name="BorrowedChords">
     <GROUP id="{F8E3BFE0-7236-27AB-E11B-198E09C96EDB}" name="Source">
+      <FILE id="RB184Y" name="Includes.h" compile="0" resource="0" file="Source/Includes.h"/>
       <GROUP id="{C4E3EF80-9B1C-7339-5F03-B3C712878581}" name="Model">
+        <FILE id="DS7mAj" name="Chord.cpp" compile="1" resource="0" file="Source/Chord.cpp"/>
+        <FILE id="FsbInx" name="Chord.h" compile="0" resource="0" file="Source/Chord.h"/>
+        <FILE id="soXszu" name="IModel.h" compile="0" resource="0" file="Source/IModel.h"/>
+        <FILE id="IvkvSo" name="Intervals.h" compile="0" resource="0" file="Source/Intervals.h"/>
+        <FILE id="czlbdP" name="Model.cpp" compile="1" resource="0" file="Source/Model.cpp"/>
+        <FILE id="tDKyER" name="Model.h" compile="0" resource="0" file="Source/Model.h"/>
         <FILE id="lOjGPB" name="ModelHeader.h" compile="0" resource="0" file="Source/ModelHeader.h"/>
-        <FILE id="j5yW2z" name="Project.cpp" compile="1" resource="0" file="Source/Project.cpp"/>
-        <FILE id="JYzZKW" name="Project.h" compile="0" resource="0" file="Source/Project.h"/>
+        <FILE id="wHtFfX" name="Note.cpp" compile="1" resource="0" file="Source/Note.cpp"/>
+        <FILE id="zKZIud" name="Note.h" compile="0" resource="0" file="Source/Note.h"/>
+        <FILE id="YjCZnL" name="Scale.cpp" compile="1" resource="0" file="Source/Scale.cpp"/>
+        <FILE id="QYhdzA" name="Scale.h" compile="0" resource="0" file="Source/Scale.h"/>
       </GROUP>
       <GROUP id="{75EB6CBE-4E55-2F1F-EE67-8614BCB1855F}" name="View">
         <FILE id="e1AdRK" name="ViewHeader.h" compile="0" resource="0" file="Source/ViewHeader.h"/>
@@ -24,14 +34,13 @@
               file="Source/MainComponent.cpp"/>
       </GROUP>
       <GROUP id="{D40DA07A-D624-3BBE-937D-7716070937A2}" name="Controller">
-        <FILE id="sRekcS" name="Chords.cpp" compile="1" resource="0" file="Source/Chords.cpp"/>
-        <FILE id="tJ8nQm" name="Chords.h" compile="0" resource="0" file="Source/Chords.h"/>
+        <FILE id="N1nkAh" name="Broadcaster.cpp" compile="1" resource="0" file="Source/Broadcaster.cpp"/>
+        <FILE id="Riu7j5" name="Broadcaster.h" compile="0" resource="0" file="Source/Broadcaster.h"/>
         <FILE id="sviyp8" name="Controller.cpp" compile="1" resource="0" file="Source/Controller.cpp"/>
         <FILE id="cdi8VM" name="Controller.h" compile="0" resource="0" file="Source/Controller.h"/>
         <FILE id="rtZ2sX" name="ControllerHeader.h" compile="0" resource="0"
               file="Source/ControllerHeader.h"/>
-        <FILE id="tQlopP" name="Scales.cpp" compile="1" resource="0" file="Source/Scales.cpp"/>
-        <FILE id="kXdJXL" name="Scales.h" compile="0" resource="0" file="Source/Scales.h"/>
+        <FILE id="GTjmTF" name="IController.h" compile="0" resource="0" file="Source/IController.h"/>
       </GROUP>
     </GROUP>
   </MAINGROUP>

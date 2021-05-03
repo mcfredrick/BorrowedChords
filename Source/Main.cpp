@@ -8,6 +8,8 @@
 
 #include <JuceHeader.h>
 #include "MainComponent.h"
+#include "Includes.h"
+#include "Controller.h"
 
 //==============================================================================
 class BorrowedChordsApplication  : public juce::JUCEApplication
@@ -20,12 +22,18 @@ public:
     const juce::String getApplicationVersion() override    { return ProjectInfo::versionString; }
     bool moreThanOneInstanceAllowed() override             { return true; }
 
+	static IController& getController()
+	{
+		return Controller::GetInstance();
+	}
+	
     //==============================================================================
     void initialise (const juce::String& commandLine) override
     {
         // This method is where you should put your application's initialisation code..
 
-        mainWindow.reset (new MainWindow (getApplicationName()));
+        mainWindow = std::make_unique<MainWindow>( getApplicationName() );
+        controller = std::make_unique<Controller>();
     }
 
     void shutdown() override
@@ -98,6 +106,7 @@ public:
 
 private:
     std::unique_ptr<MainWindow> mainWindow;
+    std::unique_ptr<Controller> controller;
 };
 
 //==============================================================================

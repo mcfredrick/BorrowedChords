@@ -13,6 +13,7 @@
 class IController
 {
 public:
-	IController(){}
-	~IController() {};
+	virtual ~IController() {};
+	
+	virtual void SetRootNote() = 0;
 };

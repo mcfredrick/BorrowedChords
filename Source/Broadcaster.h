@@ -14,7 +14,7 @@
 #include "Includes.h"
 
 template <typename TChange>
-struct Notification
+struct BCNotification
 {
 	static_assert( std::is_enum<TChange>::value, "Expecting TChange to be an enum class" );
 	
@@ -23,9 +23,11 @@ struct Notification
 };
 
 template<class TNotification>
-class Listener
+class BCListener
 {
 public:
+	virtual ~BCListener() = 0;
+	
 	virtual void onChanged( const TNotification& note ) = 0;
 };
  /*
@@ -36,11 +38,10 @@ listeners.add (someCallbackObjects...);
 // in the list...
 listeners.call ([] (MyListenerType& l) { l.myCallbackMethod (1234, true); });
 */
-template<class TListenerClass, class TNotification>
-class Broadcaster
+template<class TListenerClass, class TNotification, class TChange>
+class BCBroadcaster
 {
 public:
-
 	void AddListener( TListenerClass* listener )
 	{
 		listenerList.addListener( listener );
@@ -51,13 +52,18 @@ public:
 		listenerList.removeListener( listener );
 	}
 	
-	void NotifyListeners( const TNotification& note )
+	void NotifyListeners( const TChange& note, std::any data = std::any() )
 	{
-		juce::MessageManager::callAsync( [this] (TNotification& note)
+		juce::MessageManager::callAsync( [this, note, data] ()
 		{
-			listenerList.call(void (TListenerClass::onChanged)(note));
+			listenerList.call ([note, data] (TListenerClass& l) { l.onChanged ({ note, data }); });
 		}
 		);
+	};
+	
+	void NotifyListenersSync( TChange note, std::any data = std::any() )
+	{
+		listenerList.call ([note, data] (TListenerClass& l) { l.onChanged ({ note, data }); });
 	}
 	
 	juce::ListenerList<TListenerClass> listenerList;
@@ -69,8 +75,8 @@ enum class EModelChange
 	ScaleChanged
 };
 
-typedef Notification<EModelChange> ModelNotification;
+typedef BCNotification<EModelChange> ModelNotification;
 
-typedef Listener<ModelNotification> ModelListener;
+typedef BCListener<ModelNotification> ModelListener;
 
-typedef Broadcaster<ModelListener, ModelNotification> ModelBroadcaster;
+typedef BCBroadcaster<ModelListener, ModelNotification, EModelChange> ModelBroadcaster;

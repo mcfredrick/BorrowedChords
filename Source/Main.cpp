@@ -9,6 +9,7 @@
 #include <JuceHeader.h>
 #include "MainComponent.h"
 #include "Includes.h"
+#include "IController.h"
 #include "Controller.h"
 
 //==============================================================================

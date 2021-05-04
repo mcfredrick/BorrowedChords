@@ -9,25 +9,37 @@
 */
 
 #pragma once
-#include "Includes.h"
 #include "IController.h"
+#include "Includes.h"
+#include "Model.h"
+#include "Broadcaster.h"
 
 class Controller	:
-public IController
+public IController,
+public ModelBroadcaster
 {
 public:
-	Controller()
+	friend class BorrowedChordsApplication;
+	
+	Controller();
+	~Controller();
+	
+	// No copying or deleting. Sorry, bud.
+	Controller( Controller const& ) = delete;
+	void operator=( Controller const& ) = delete;
+	
+	void SetRootNote() override
 	{
-		jassert( s_pController == nullptr );
-		s_pController = this;
+		NotifyListeners( EModelChange::RootChanged/*, newNote*/ );
 	}
 	
 	inline static IController& GetInstance()
 	{
-		jassert( s_pController != nullptr );
-		return *s_pController;
+		jassert( m_pController != nullptr );
+		return *m_pController;
 	}
 	
 private:
-	static IController*	s_pController;
+	static IController* m_pController;
+	Model m_model;
 };

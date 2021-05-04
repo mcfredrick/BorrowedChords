@@ -2193,6 +2193,7 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_osc.cpp"/>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\AppBasics.h"/>
     <ClInclude Include="..\..\Source\Includes.h"/>
     <ClInclude Include="..\..\Source\Chord.h"/>
     <ClInclude Include="..\..\Source\IModel.h"/>
@@ -2201,6 +2202,7 @@
     <ClInclude Include="..\..\Source\ModelHeader.h"/>
     <ClInclude Include="..\..\Source\Note.h"/>
     <ClInclude Include="..\..\Source\Scale.h"/>
+    <ClInclude Include="..\..\Source\Main.h"/>
     <ClInclude Include="..\..\Source\ViewHeader.h"/>
     <ClInclude Include="..\..\Source\ComponentBase.h"/>
     <ClInclude Include="..\..\Source\LookAndFeel.h"/>

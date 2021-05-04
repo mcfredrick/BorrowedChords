@@ -34,6 +34,7 @@ add_library( ${BINARY_NAME}
 
     SHARED
 
+    "../../../Source/AppBasics.h"
     "../../../Source/Includes.h"
     "../../../Source/Chord.cpp"
     "../../../Source/Chord.h"
@@ -46,6 +47,7 @@ add_library( ${BINARY_NAME}
     "../../../Source/Note.h"
     "../../../Source/Scale.cpp"
     "../../../Source/Scale.h"
+    "../../../Source/Main.h"
     "../../../Source/ViewHeader.h"
     "../../../Source/ComponentBase.cpp"
     "../../../Source/ComponentBase.h"
@@ -1608,6 +1610,7 @@ add_library( ${BINARY_NAME}
     "../../../JuceLibraryCode/JuceHeader.h"
 )
 
+set_source_files_properties("../../../Source/AppBasics.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties("../../../Source/Includes.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties("../../../Source/Chord.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties("../../../Source/IModel.h" PROPERTIES HEADER_FILE_ONLY TRUE)
@@ -1616,6 +1619,7 @@ set_source_files_properties("../../../Source/Model.h" PROPERTIES HEADER_FILE_ONL
 set_source_files_properties("../../../Source/ModelHeader.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties("../../../Source/Note.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties("../../../Source/Scale.h" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties("../../../Source/Main.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties("../../../Source/ViewHeader.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties("../../../Source/ComponentBase.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties("../../../Source/LookAndFeel.h" PROPERTIES HEADER_FILE_ONLY TRUE)

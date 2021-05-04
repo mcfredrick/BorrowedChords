@@ -5,6 +5,7 @@
               cppLanguageStandard="17">
   <MAINGROUP id="YxWSVl" name="BorrowedChords">
     <GROUP id="{F8E3BFE0-7236-27AB-E11B-198E09C96EDB}" name="Source">
+      <FILE id="klcWmi" name="AppBasics.h" compile="0" resource="0" file="Source/AppBasics.h"/>
       <FILE id="RB184Y" name="Includes.h" compile="0" resource="0" file="Source/Includes.h"/>
       <GROUP id="{C4E3EF80-9B1C-7339-5F03-B3C712878581}" name="Model">
         <FILE id="DS7mAj" name="Chord.cpp" compile="1" resource="0" file="Source/Chord.cpp"/>
@@ -20,6 +21,7 @@
         <FILE id="QYhdzA" name="Scale.h" compile="0" resource="0" file="Source/Scale.h"/>
       </GROUP>
       <GROUP id="{75EB6CBE-4E55-2F1F-EE67-8614BCB1855F}" name="View">
+        <FILE id="D1G3wW" name="Main.h" compile="0" resource="0" file="Source/Main.h"/>
         <FILE id="e1AdRK" name="ViewHeader.h" compile="0" resource="0" file="Source/ViewHeader.h"/>
         <FILE id="TwfAem" name="ComponentBase.cpp" compile="1" resource="0"
               file="Source/ComponentBase.cpp"/>

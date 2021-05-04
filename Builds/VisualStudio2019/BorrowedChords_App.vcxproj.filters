@@ -2682,6 +2682,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\AppBasics.h">
+      <Filter>BorrowedChords\Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\Includes.h">
       <Filter>BorrowedChords\Source</Filter>
     </ClInclude>
@@ -2705,6 +2708,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\Scale.h">
       <Filter>BorrowedChords\Source\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Main.h">
+      <Filter>BorrowedChords\Source\View</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\ViewHeader.h">
       <Filter>BorrowedChords\Source\View</Filter>

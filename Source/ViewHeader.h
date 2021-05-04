@@ -12,5 +12,12 @@
 
 #include <juce_gui_basics/juce_gui_basics.h>
 #include "ComponentBase.h"
-
-
+#include "Includes.h"
+#include "IController.h"
+#include "Main.h"
+/*
+static IController& getController()
+{
+	return BorrowedChordsApplication::getController();
+}
+*/

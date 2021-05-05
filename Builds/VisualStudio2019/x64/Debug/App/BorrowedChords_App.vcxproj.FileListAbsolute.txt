@@ -1,0 +1,2 @@
+C:\Git\BorrowedChords\Builds\VisualStudio2019\x64\Debug\App\BorrowedChords.exe
+C:\Git\BorrowedChords\Builds\VisualStudio2019\x64\Debug\App\BorrowedChords.pdb

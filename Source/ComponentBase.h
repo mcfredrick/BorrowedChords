@@ -10,7 +10,7 @@
 
 #pragma once
 
-#include "ViewHeader.h"
+#include <JuceHeader.h>
 
 namespace view
 {

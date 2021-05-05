@@ -28,15 +28,32 @@ public:
 	Controller( Controller const& ) = delete;
 	void operator=( Controller const& ) = delete;
 	
-	void SetRootNote() override
-	{
-		NotifyListeners( EModelChange::RootChanged/*, newNote*/ );
-	}
-	
 	inline static IController& GetInstance()
 	{
 		jassert( m_pController != nullptr );
 		return *m_pController;
+	}
+	
+	void SetRootNote( Note note ) override
+	{
+		m_model.SetRootNote( note );
+		ModelBroadcaster::NotifyListeners( EModelChange::RootChanged );
+	}
+	
+	Note GetRootNote() override
+	{
+		return m_model.GetRootNote();
+	}
+	
+	void SetHomeScale( Scale scale ) override
+	{
+		m_model.SetHomeScale( scale );
+		NotifyListeners( EModelChange::ScaleChanged );
+	}
+	
+	Scale GetHomeScale() override
+	{
+		return m_model.GetHomeScale();
 	}
 	
 private:

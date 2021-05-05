@@ -12,6 +12,7 @@
 
 #include "ViewHeader.h"
 #include "Note.h"
+#include "Scale.h"
 
 namespace view
 {
@@ -56,17 +57,7 @@ namespace view
 			return juce::Result::ok();
 		}
 		
-		void initColumns()
-		{
-			auto& header = getHeader();
-			
-			// Column IDs must start at 1.
-			for ( int i = 0; i < 8; ++i )
-			{
-				auto rootNote = Note( { i } );
-				header.addColumn ( rootNote.GetNoteDescr(), i + 1, getWidth()/7, /*minimumWidth=*/30, /*maximumWidth=*/-1/*, propertyFlags=defaultFlags, insertIndex=-1*/);
-			}
-		}
+		void initColumns();
 		
 	private:
 		

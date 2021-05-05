@@ -1,4 +1,5 @@
 #include "MainComponent.h"
+#include "ChordTable.h"
 
 namespace view
 {
@@ -31,7 +32,8 @@ MainComponent::~MainComponent()
 
 juce::Result MainComponent::onInit()
 {
-	addAndMakeVisible( m_chordTable );
+	m_chordTable = std::make_unique<ChordTable>();
+	addAndMakeVisible( *m_chordTable );
 	return juce::Result::ok();
 }
 	
@@ -77,7 +79,11 @@ void MainComponent::paint (juce::Graphics& g)
 
 void MainComponent::resized()
 {
-	m_chordTable.setBounds( getLocalBounds().removeFromTop( 100 ) );
+	if ( m_chordTable != nullptr )
+	{
+		addAndMakeVisible( *m_chordTable );
+		m_chordTable->setBounds( getLocalBounds().removeFromTop( 100 ) );
+	}
 }
 
 }

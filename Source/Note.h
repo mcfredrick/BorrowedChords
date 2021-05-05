@@ -50,7 +50,8 @@ juce::String PitchModifiers[]
 #endif
 struct Note
 {
-	int pitch;
+	// pitch is the degree of the chromatic scale starting at C which this represents
+	int pitch = 0;
 	
 	juce::String GetNoteDescr()
 	{

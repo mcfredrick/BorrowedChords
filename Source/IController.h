@@ -10,10 +10,17 @@
 
 #pragma once
 
+struct Note;
+struct Scale;
+
 class IController
 {
 public:
 	virtual ~IController() {};
 	
-	virtual void SetRootNote() = 0;
+	virtual void SetRootNote( Note note ) = 0;
+	virtual Note GetRootNote() = 0;
+	
+	virtual void SetHomeScale( Scale scale ) = 0;
+	virtual Scale GetHomeScale() = 0;
 };

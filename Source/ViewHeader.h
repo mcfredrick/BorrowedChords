@@ -20,3 +20,5 @@ inline static IController& GetController()
 {
 	return BorrowedChordsApplication::getController();
 }
+
+

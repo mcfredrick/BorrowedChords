@@ -2,10 +2,10 @@
 
 #include <JuceHeader.h>
 #include "ViewHeader.h"
-#include "ChordTable.h"
 
 namespace view
 {
+	class ChordTable;
 //==============================================================================
 /*
     This component lives inside our window, and this is where you should put all
@@ -33,7 +33,7 @@ namespace view
 		//==============================================================================
 		// Your private member variables go here...
 
-		ChordTable m_chordTable;
+		std::unique_ptr<ChordTable> m_chordTable;
 		
 		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)
 	};

@@ -13,13 +13,15 @@
 #include "Controller.h"
 
 	//==============================================================================
-BorrowedChordsApplication::BorrowedChordsApplication() {}
+	BorrowedChordsApplication::BorrowedChordsApplication()
+	{
+	}
 	
 	const juce::String BorrowedChordsApplication::getApplicationName() { return ProjectInfo::projectName; }
 	const juce::String BorrowedChordsApplication::getApplicationVersion() { return ProjectInfo::versionString; }
 	bool BorrowedChordsApplication::moreThanOneInstanceAllowed() { return true; }
 	
-	static IController& getController()
+	IController& BorrowedChordsApplication::getController()
 	{
 		return Controller::GetInstance();
 	}
@@ -28,9 +30,8 @@ BorrowedChordsApplication::BorrowedChordsApplication() {}
 	void BorrowedChordsApplication::initialise (const juce::String& commandLine)
 	{
 		// This method is where you should put your application's initialisation code..
-		
-		mainWindow = std::make_unique<MainWindow>( getApplicationName() );
 		controller = std::make_unique<Controller>();
+		mainWindow = std::make_unique<MainWindow>( getApplicationName() );
 	}
 	
 	void BorrowedChordsApplication::shutdown()

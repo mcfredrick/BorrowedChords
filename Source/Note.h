@@ -11,7 +11,7 @@
 #pragma once
 
 #include "Includes.h"
-
+#if 0
 enum class ENoteLetter
 {
 	A = 0,
@@ -47,9 +47,17 @@ juce::String PitchModifiers[]
 	"",
 	"#"
 };
-
+#endif
 struct Note
 {
+	int pitch;
+	
+	juce::String GetNoteDescr()
+	{
+		return juce::MidiMessage::getMidiNoteName( pitch, true, false, 4 );
+	}
+	
+#if 0
 	juce::String GetNoteLetterString()
 	{
 		return NoteLetters[int(letter)];
@@ -67,4 +75,5 @@ struct Note
 	
 	ENoteLetter letter;
 	EPitchModifier modifier;
+#endif
 };

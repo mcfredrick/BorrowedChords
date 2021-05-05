@@ -11,6 +11,7 @@
 #pragma once
 
 #include "ViewHeader.h"
+#include "Note.h"
 
 namespace view
 {
@@ -60,9 +61,10 @@ namespace view
 			auto& header = getHeader();
 			
 			// Column IDs must start at 1.
-			for ( int i = 1; i < 8; ++i )
+			for ( int i = 0; i < 8; ++i )
 			{
-				header.addColumn ( juce::String( "Chord " + juce::String(i) ), i, getWidth()/7, /*minimumWidth=*/30, /*maximumWidth=*/-1/*, propertyFlags=defaultFlags, insertIndex=-1*/);
+				auto rootNote = Note( { i } );
+				header.addColumn ( rootNote.GetNoteDescr(), i + 1, getWidth()/7, /*minimumWidth=*/30, /*maximumWidth=*/-1/*, propertyFlags=defaultFlags, insertIndex=-1*/);
 			}
 		}
 		

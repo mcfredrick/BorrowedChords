@@ -15,9 +15,8 @@
 #include "Includes.h"
 #include "IController.h"
 #include "Main.h"
-/*
-static IController& getController()
+
+inline static IController& GetController()
 {
 	return BorrowedChordsApplication::getController();
 }
-*/

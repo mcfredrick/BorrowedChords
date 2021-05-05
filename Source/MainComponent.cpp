@@ -34,6 +34,8 @@ juce::Result MainComponent::onInit()
 {
 	m_chordTable = std::make_unique<ChordTable>();
 	addAndMakeVisible( *m_chordTable );
+	m_chordTable->setSize( 800, 100 );
+	resized();
 	return juce::Result::ok();
 }
 	
@@ -83,6 +85,7 @@ void MainComponent::resized()
 	{
 		addAndMakeVisible( *m_chordTable );
 		m_chordTable->setBounds( getLocalBounds().removeFromTop( 100 ) );
+		DBG( m_chordTable->getWidth() << " , " << m_chordTable->getHeight() );
 	}
 }
 

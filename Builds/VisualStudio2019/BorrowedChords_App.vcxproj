@@ -143,6 +143,7 @@
     <ClCompile Include="..\..\Source\Model.cpp"/>
     <ClCompile Include="..\..\Source\Note.cpp"/>
     <ClCompile Include="..\..\Source\Scale.cpp"/>
+    <ClCompile Include="..\..\Source\SelectorComponents.cpp"/>
     <ClCompile Include="..\..\Source\ComponentBase.cpp"/>
     <ClCompile Include="..\..\Source\LookAndFeel.cpp"/>
     <ClCompile Include="..\..\Source\ChordTable.cpp"/>
@@ -2202,6 +2203,7 @@
     <ClInclude Include="..\..\Source\ModelHeader.h"/>
     <ClInclude Include="..\..\Source\Note.h"/>
     <ClInclude Include="..\..\Source\Scale.h"/>
+    <ClInclude Include="..\..\Source\SelectorComponents.h"/>
     <ClInclude Include="..\..\Source\Main.h"/>
     <ClInclude Include="..\..\Source\ViewHeader.h"/>
     <ClInclude Include="..\..\Source\ComponentBase.h"/>

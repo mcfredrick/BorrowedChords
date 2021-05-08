@@ -47,6 +47,8 @@ add_library( ${BINARY_NAME}
     "../../../Source/Note.h"
     "../../../Source/Scale.cpp"
     "../../../Source/Scale.h"
+    "../../../Source/SelectorComponents.cpp"
+    "../../../Source/SelectorComponents.h"
     "../../../Source/Main.h"
     "../../../Source/ViewHeader.h"
     "../../../Source/ComponentBase.cpp"
@@ -1619,6 +1621,7 @@ set_source_files_properties("../../../Source/Model.h" PROPERTIES HEADER_FILE_ONL
 set_source_files_properties("../../../Source/ModelHeader.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties("../../../Source/Note.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties("../../../Source/Scale.h" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties("../../../Source/SelectorComponents.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties("../../../Source/Main.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties("../../../Source/ViewHeader.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties("../../../Source/ComponentBase.h" PROPERTIES HEADER_FILE_ONLY TRUE)

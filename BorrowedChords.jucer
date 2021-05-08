@@ -21,6 +21,10 @@
         <FILE id="QYhdzA" name="Scale.h" compile="0" resource="0" file="Source/Scale.h"/>
       </GROUP>
       <GROUP id="{75EB6CBE-4E55-2F1F-EE67-8614BCB1855F}" name="View">
+        <FILE id="snndh9" name="SelectorComponents.cpp" compile="1" resource="0"
+              file="Source/SelectorComponents.cpp"/>
+        <FILE id="S1du41" name="SelectorComponents.h" compile="0" resource="0"
+              file="Source/SelectorComponents.h"/>
         <FILE id="D1G3wW" name="Main.h" compile="0" resource="0" file="Source/Main.h"/>
         <FILE id="e1AdRK" name="ViewHeader.h" compile="0" resource="0" file="Source/ViewHeader.h"/>
         <FILE id="TwfAem" name="ComponentBase.cpp" compile="1" resource="0"

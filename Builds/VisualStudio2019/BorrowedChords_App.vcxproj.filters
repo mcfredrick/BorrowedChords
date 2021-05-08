@@ -475,6 +475,9 @@
     <ClCompile Include="..\..\Source\Scale.cpp">
       <Filter>BorrowedChords\Source\Model</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\SelectorComponents.cpp">
+      <Filter>BorrowedChords\Source\View</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\ComponentBase.cpp">
       <Filter>BorrowedChords\Source\View</Filter>
     </ClCompile>
@@ -2708,6 +2711,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\Scale.h">
       <Filter>BorrowedChords\Source\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SelectorComponents.h">
+      <Filter>BorrowedChords\Source\View</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Main.h">
       <Filter>BorrowedChords\Source\View</Filter>

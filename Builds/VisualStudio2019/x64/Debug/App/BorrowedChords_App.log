@@ -1,49 +1,13 @@
-﻿  Chord.cpp
-  Model.cpp
-  Note.cpp
-  Scale.cpp
-  ComponentBase.cpp
-  LookAndFeel.cpp
-  ChordTable.cpp
-  Main.cpp
-  MainComponent.cpp
-  Broadcaster.cpp
-C:\Git\BorrowedChords\Source\Main.cpp(30,66): warning C4100: 'commandLine': unreferenced formal parameter
-C:\Git\BorrowedChords\Source\Main.cpp(52,78): warning C4100: 'commandLine': unreferenced formal parameter
-C:\Git\BorrowedChords\Source\ChordTable.h(28,91): warning C4100: 'rowIsSelected': unreferenced formal parameter (compiling source file ..\..\Source\ChordTable.cpp)
-C:\Git\BorrowedChords\Source\ChordTable.h(28,78): warning C4100: 'height': unreferenced formal parameter (compiling source file ..\..\Source\ChordTable.cpp)
-C:\Git\BorrowedChords\Source\ChordTable.h(28,67): warning C4100: 'width': unreferenced formal parameter (compiling source file ..\..\Source\ChordTable.cpp)
-C:\Git\BorrowedChords\Source\ChordTable.h(28,52): warning C4100: 'rowNumber': unreferenced formal parameter (compiling source file ..\..\Source\ChordTable.cpp)
-C:\Git\BorrowedChords\Source\ChordTable.h(34,96): warning C4100: 'rowIsSelected': unreferenced formal parameter (compiling source file ..\..\Source\ChordTable.cpp)
-C:\Git\BorrowedChords\Source\ChordTable.h(34,83): warning C4100: 'height': unreferenced formal parameter (compiling source file ..\..\Source\ChordTable.cpp)
-C:\Git\BorrowedChords\Source\ChordTable.h(34,72): warning C4100: 'width': unreferenced formal parameter (compiling source file ..\..\Source\ChordTable.cpp)
-C:\Git\BorrowedChords\Source\ChordTable.h(34,58): warning C4100: 'columnId': unreferenced formal parameter (compiling source file ..\..\Source\ChordTable.cpp)
-C:\Git\BorrowedChords\Source\ChordTable.h(34,43): warning C4100: 'rowNumber': unreferenced formal parameter (compiling source file ..\..\Source\ChordTable.cpp)
-C:\Git\BorrowedChords\Source\ChordTable.cpp(16,17): warning C4458: declaration of 'header' hides class member
-C:\Git\JUCE\modules\juce_gui_basics\widgets\juce_TableListBox.h(342,27): message : see declaration of 'juce::TableListBox::header' (compiling source file ..\..\Source\ChordTable.cpp)
-C:\Git\BorrowedChords\Source\ChordTable.h(28,91): warning C4100: 'rowIsSelected': unreferenced formal parameter (compiling source file ..\..\Source\MainComponent.cpp)
-C:\Git\BorrowedChords\Source\ChordTable.h(28,78): warning C4100: 'height': unreferenced formal parameter (compiling source file ..\..\Source\MainComponent.cpp)
-C:\Git\BorrowedChords\Source\ChordTable.h(28,67): warning C4100: 'width': unreferenced formal parameter (compiling source file ..\..\Source\MainComponent.cpp)
-C:\Git\BorrowedChords\Source\ChordTable.h(28,52): warning C4100: 'rowNumber': unreferenced formal parameter (compiling source file ..\..\Source\MainComponent.cpp)
-C:\Git\BorrowedChords\Source\ChordTable.h(34,96): warning C4100: 'rowIsSelected': unreferenced formal parameter (compiling source file ..\..\Source\MainComponent.cpp)
-C:\Git\BorrowedChords\Source\ChordTable.h(34,83): warning C4100: 'height': unreferenced formal parameter (compiling source file ..\..\Source\MainComponent.cpp)
-C:\Git\BorrowedChords\Source\ChordTable.h(34,72): warning C4100: 'width': unreferenced formal parameter (compiling source file ..\..\Source\MainComponent.cpp)
-C:\Git\BorrowedChords\Source\ChordTable.h(34,58): warning C4100: 'columnId': unreferenced formal parameter (compiling source file ..\..\Source\MainComponent.cpp)
-C:\Git\BorrowedChords\Source\ChordTable.h(34,43): warning C4100: 'rowNumber': unreferenced formal parameter (compiling source file ..\..\Source\MainComponent.cpp)
-C:\Git\BorrowedChords\Source\MainComponent.cpp(43,72): warning C4100: 'sampleRate': unreferenced formal parameter
-C:\Git\BorrowedChords\Source\MainComponent.cpp(43,40): warning C4100: 'samplesPerBlockExpected': unreferenced formal parameter
-  Controller.cpp
-  include_juce_audio_basics.cpp
-  include_juce_audio_devices.cpp
-  include_juce_audio_formats.cpp
-  include_juce_audio_processors.cpp
-  include_juce_audio_utils.cpp
-  include_juce_core.cpp
-  include_juce_data_structures.cpp
-  include_juce_dsp.cpp
-  include_juce_events.cpp
-  include_juce_graphics.cpp
-  include_juce_gui_basics.cpp
-  include_juce_gui_extra.cpp
-  include_juce_osc.cpp
+﻿  MainComponent.cpp
+C:\Git\BorrowedChords\Source\ChordTable.h(28,91): warning C4100: 'rowIsSelected': unreferenced formal parameter
+C:\Git\BorrowedChords\Source\ChordTable.h(28,78): warning C4100: 'height': unreferenced formal parameter
+C:\Git\BorrowedChords\Source\ChordTable.h(28,67): warning C4100: 'width': unreferenced formal parameter
+C:\Git\BorrowedChords\Source\ChordTable.h(28,52): warning C4100: 'rowNumber': unreferenced formal parameter
+C:\Git\BorrowedChords\Source\ChordTable.h(34,96): warning C4100: 'rowIsSelected': unreferenced formal parameter
+C:\Git\BorrowedChords\Source\ChordTable.h(34,83): warning C4100: 'height': unreferenced formal parameter
+C:\Git\BorrowedChords\Source\ChordTable.h(34,72): warning C4100: 'width': unreferenced formal parameter
+C:\Git\BorrowedChords\Source\ChordTable.h(34,58): warning C4100: 'columnId': unreferenced formal parameter
+C:\Git\BorrowedChords\Source\ChordTable.h(34,43): warning C4100: 'rowNumber': unreferenced formal parameter
+C:\Git\BorrowedChords\Source\MainComponent.cpp(42,73): warning C4100: 'sampleRate': unreferenced formal parameter
+C:\Git\BorrowedChords\Source\MainComponent.cpp(42,41): warning C4100: 'samplesPerBlockExpected': unreferenced formal parameter
   BorrowedChords_App.vcxproj -> C:\Git\BorrowedChords\Builds\VisualStudio2019\x64\Debug\App\BorrowedChords.exe

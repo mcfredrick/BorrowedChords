@@ -37,7 +37,7 @@ namespace view
 			g.drawRect( g.getClipBounds() );
 			g.drawFittedText( "Chord here", g.getClipBounds(), juce::Justification::centred, 1 );
 		}
-		
+	
 		//virtual Component * 	refreshComponentForCell (int rowNumber, int columnId, bool isRowSelected, Component *existingComponentToUpdate)
 	};
 	
@@ -58,7 +58,7 @@ namespace view
 		}
 		
 		void initColumns();
-		
+
 	private:
 		
 		ChordTableModel m_model;

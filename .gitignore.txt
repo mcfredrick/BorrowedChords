@@ -1,1 +1,0 @@
-\Builds\VisualStudio2019\.vs\**

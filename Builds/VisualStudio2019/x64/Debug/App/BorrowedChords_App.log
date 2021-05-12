@@ -1,6 +1,0 @@
-﻿  ChordTable.cpp
-  MainComponent.cpp
-C:\Git\BorrowedChords\Source\ChordTable.cpp(16,18): warning C4458: declaration of 'header' hides class member
-C:\Git\JUCE\modules\juce_gui_basics\widgets\juce_TableListBox.h(342,27): message : see declaration of 'juce::TableListBox::header' (compiling source file ..\..\Source\ChordTable.cpp)
-C:\Git\BorrowedChords\Source\ChordTable.cpp(19,35): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  BorrowedChords_App.vcxproj -> C:\Git\BorrowedChords\Builds\VisualStudio2019\x64\Debug\App\BorrowedChords.exe

@@ -12,11 +12,9 @@
 #include "IController.h"
 #include "Includes.h"
 #include "Model.h"
-#include "Broadcaster.h"
 
 class Controller	:
-public IController,
-public ModelBroadcaster
+public IController
 {
 public:
 	friend class BorrowedChordsApplication;

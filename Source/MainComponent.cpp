@@ -1,5 +1,6 @@
 #include "MainComponent.h"
 #include "ChordTable.h"
+#include "SelectorComponents.h"
 
 namespace view
 {
@@ -33,13 +34,15 @@ namespace view
 	juce::Result MainComponent::onInit()
 	{
 		m_chordTable = std::make_unique<ChordTable>();
+		m_selector = std::make_unique<SelectorComponents>();
 		resized();
 		addAndMakeVisible( *m_chordTable );
+		addAndMakeVisible( *m_selector );
 		return juce::Result::ok();
 	}
 
 	//==============================================================================
-	void MainComponent::prepareToPlay( int samplesPerBlockExpected, double sampleRate )
+	void MainComponent::prepareToPlay( int /*samplesPerBlockExpected*/, double /*sampleRate*/ )
 	{
 		// This function will be called when the audio device is started, or when
 		// its settings (i.e. sample rate, block size, etc) are changed.
@@ -80,13 +83,18 @@ namespace view
 
 	void MainComponent::resized()
 	{
+		auto lb = getLocalBounds();
+		if ( m_selector != nullptr )
+		{
+			m_selector->setBounds( lb.removeFromTop( 100 ).reduced( lb.getWidth() / 4, 25 ) );
+		}
+
 		if ( m_chordTable != nullptr )
 		{
 			auto h = ( 4 * m_chordTable->getRowHeight() ) + m_chordTable->getHeaderHeight() + m_chordTable->getHorizontalScrollBar().getHeight();
 			m_chordTable->setSize( getWidth(), h );
 
-			auto lb = getLocalBounds();
-			lb.removeFromTop( 100 );
+			
 			m_chordTable->setBounds( lb.removeFromTop( h ).reduced( 20, 0 ) );
 		}
 	}

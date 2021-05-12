@@ -6,6 +6,7 @@
 namespace view
 {
 	class ChordTable;
+	class SelectorComponents;
 //==============================================================================
 /*
     This component lives inside our window, and this is where you should put all
@@ -34,6 +35,7 @@ namespace view
 		// Your private member variables go here...
 
 		std::unique_ptr<ChordTable> m_chordTable;
+		std::unique_ptr<SelectorComponents> m_selector;
 		
 		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)
 	};

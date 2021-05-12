@@ -1,13 +1,7 @@
-﻿  MainComponent.cpp
-C:\Git\BorrowedChords\Source\ChordTable.h(28,91): warning C4100: 'rowIsSelected': unreferenced formal parameter
-C:\Git\BorrowedChords\Source\ChordTable.h(28,78): warning C4100: 'height': unreferenced formal parameter
-C:\Git\BorrowedChords\Source\ChordTable.h(28,67): warning C4100: 'width': unreferenced formal parameter
-C:\Git\BorrowedChords\Source\ChordTable.h(28,52): warning C4100: 'rowNumber': unreferenced formal parameter
-C:\Git\BorrowedChords\Source\ChordTable.h(34,96): warning C4100: 'rowIsSelected': unreferenced formal parameter
-C:\Git\BorrowedChords\Source\ChordTable.h(34,83): warning C4100: 'height': unreferenced formal parameter
-C:\Git\BorrowedChords\Source\ChordTable.h(34,72): warning C4100: 'width': unreferenced formal parameter
-C:\Git\BorrowedChords\Source\ChordTable.h(34,58): warning C4100: 'columnId': unreferenced formal parameter
-C:\Git\BorrowedChords\Source\ChordTable.h(34,43): warning C4100: 'rowNumber': unreferenced formal parameter
-C:\Git\BorrowedChords\Source\MainComponent.cpp(42,73): warning C4100: 'sampleRate': unreferenced formal parameter
-C:\Git\BorrowedChords\Source\MainComponent.cpp(42,41): warning C4100: 'samplesPerBlockExpected': unreferenced formal parameter
+﻿  ChordTable.cpp
+  MainComponent.cpp
+  SelectorComponents.cpp
+C:\Git\BorrowedChords\Source\ChordTable.cpp(16,18): warning C4458: declaration of 'header' hides class member
+C:\Git\JUCE\modules\juce_gui_basics\widgets\juce_TableListBox.h(342,27): message : see declaration of 'juce::TableListBox::header' (compiling source file ..\..\Source\ChordTable.cpp)
+C:\Git\BorrowedChords\Source\ChordTable.cpp(19,35): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   BorrowedChords_App.vcxproj -> C:\Git\BorrowedChords\Builds\VisualStudio2019\x64\Debug\App\BorrowedChords.exe

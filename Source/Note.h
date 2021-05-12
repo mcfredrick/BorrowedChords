@@ -50,14 +50,40 @@ juce::String PitchModifiers[]
 #endif
 struct Note
 {
+	Note( int pitchNum ) :
+		pitch( pitchNum )
+	{}
+
+	// Default to C
+	Note() :
+		pitch( 0 )
+	{}
+	
+	
 	// pitch is the degree of the chromatic scale starting at C which this represents
 	int pitch = 0;
 	
-	juce::String GetNoteDescr()
+	static juce::String GetNoteDescr( int pitch )
 	{
 		return juce::MidiMessage::getMidiNoteName( pitch, true, false, 4 );
 	}
+
+	juce::String GetNoteDescr()
+	{
+		return GetNoteDescr( pitch );
+	}
 	
+	// Scales with the same name should be the same.
+	bool operator==( const Note& other )
+	{
+		return other.pitch == pitch;
+	}
+
+	friend bool operator<( const Note& l, const Note& r )
+	{
+		return l.pitch < r.pitch;
+	}
+
 #if 0
 	juce::String GetNoteLetterString()
 	{

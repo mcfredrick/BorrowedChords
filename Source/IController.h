@@ -9,11 +9,13 @@
 */
 
 #pragma once
+#include "Broadcaster.h"
 
 struct Note;
 struct Scale;
 
-class IController
+class IController	:
+	public ModelBroadcaster
 {
 public:
 	virtual ~IController() {};

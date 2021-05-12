@@ -20,6 +20,8 @@ namespace view
 		int pitch = rootNote.pitch;
 		auto colWidth = std::max( 20, getWidth() / ( num + 1 ) );
 
+		header.removeAllColumns();
+
 		header.addColumn( "Scale" , 1, colWidth, /*minimumWidth=*/30, /*maximumWidth=*/-1/*, propertyFlags=defaultFlags, insertIndex=-1*/);
 
 		// Column IDs must start at 1.

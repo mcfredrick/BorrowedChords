@@ -1,51 +1,65 @@
 /*
   ==============================================================================
 
-    SelectorComponents.cpp
-    Created: 7 May 2021 10:12:12pm
-    Author:  Matt
+	SelectorComponents.cpp
+	Created: 7 May 2021 10:12:12pm
+	Author:  Matt
 
   ==============================================================================
 */
 
 #include <JuceHeader.h>
 #include "SelectorComponents.h"
+#include "Note.h"
 
-//==============================================================================
-SelectorComponents::SelectorComponents()
+namespace view
 {
-    // In your constructor, you should add any child components, and
-    // initialise any special settings that your component needs.
 
-}
+	//==============================================================================
+	SelectorComponents::SelectorComponents()
+	{
+		// In your constructor, you should add any child components, and
+		// initialise any special settings that your component needs.
 
-SelectorComponents::~SelectorComponents()
-{
-}
+	}
 
-void SelectorComponents::paint (juce::Graphics& g)
-{
-    /* This demo code just fills the component's background and
-       draws some placeholder text to get you started.
+	SelectorComponents::~SelectorComponents()
+	{
+	}
 
-       You should replace everything in this method with your own
-       drawing code..
-    */
+	juce::Result SelectorComponents::onInit()
+	{
+		addAndMakeVisible( m_cmbNote );
+		addAndMakeVisible( m_cmbScale );
+		return juce::Result::ok();
+	}
 
-    g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));   // clear the background
+	void SelectorComponents::paint( juce::Graphics& g )
+	{
+		/* This demo code just fills the component's background and
+		   draws some placeholder text to get you started.
 
-    g.setColour (juce::Colours::grey);
-    g.drawRect (getLocalBounds(), 1);   // draw an outline around the component
+		   You should replace everything in this method with your own
+		   drawing code..
+		*/
 
-    g.setColour (juce::Colours::white);
-    g.setFont (14.0f);
-    g.drawText ("SelectorComponents", getLocalBounds(),
-                juce::Justification::centred, true);   // draw some placeholder text
-}
+		g.fillAll( getLookAndFeel().findColour( juce::ResizableWindow::backgroundColourId ) );   // clear the background
 
-void SelectorComponents::resized()
-{
-    // This method is where you should set the bounds of any child
-    // components that your component contains..
+		g.setColour( juce::Colours::grey );
+		g.drawRect( getLocalBounds(), 1 );   // draw an outline around the component
 
-}
+		g.setColour( juce::Colours::white );
+		g.setFont( 14.0f );
+		g.drawText( "SelectorComponents", getLocalBounds(),
+			juce::Justification::centred, true );   // draw some placeholder text
+	}
+
+	void SelectorComponents::resized()
+	{
+		// This method is where you should set the bounds of any child
+		// components that your component contains..
+		auto lb = getLocalBounds();
+		m_cmbNote.setBounds( lb.removeFromLeft( lb.getWidth() / 2 ) );
+		m_cmbScale.setBounds( lb );
+	}
+};

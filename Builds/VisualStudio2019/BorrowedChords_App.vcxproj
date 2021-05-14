@@ -2194,6 +2194,7 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_osc.cpp"/>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\Types.h"/>
     <ClInclude Include="..\..\Source\AppBasics.h"/>
     <ClInclude Include="..\..\Source\Includes.h"/>
     <ClInclude Include="..\..\Source\Chord.h"/>

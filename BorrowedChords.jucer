@@ -5,6 +5,7 @@
               cppLanguageStandard="17" displaySplashScreen="1">
   <MAINGROUP id="YxWSVl" name="BorrowedChords">
     <GROUP id="{F8E3BFE0-7236-27AB-E11B-198E09C96EDB}" name="Source">
+      <FILE id="a74AHf" name="Types.h" compile="0" resource="0" file="Source/Types.h"/>
       <FILE id="klcWmi" name="AppBasics.h" compile="0" resource="0" file="Source/AppBasics.h"/>
       <FILE id="RB184Y" name="Includes.h" compile="0" resource="0" file="Source/Includes.h"/>
       <GROUP id="{C4E3EF80-9B1C-7339-5F03-B3C712878581}" name="Model">

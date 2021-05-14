@@ -27,7 +27,7 @@
 	}
 	
 	//==============================================================================
-	void BorrowedChordsApplication::initialise (const juce::String& commandLine)
+	void BorrowedChordsApplication::initialise (const juce::String& /*commandLine*/)
 	{
 		// This method is where you should put your application's initialisation code..
 		controller = std::make_unique<Controller>();
@@ -49,7 +49,7 @@
 		quit();
 	}
 	
-	void BorrowedChordsApplication::anotherInstanceStarted (const juce::String& commandLine)
+	void BorrowedChordsApplication::anotherInstanceStarted (const juce::String& /*commandLine*/)
 	{
 		// When another instance of the app is launched while this one is running,
 		// this method is invoked, and the commandLine parameter tells you what

@@ -34,6 +34,7 @@ add_library( ${BINARY_NAME}
 
     SHARED
 
+    "../../../Source/Types.h"
     "../../../Source/AppBasics.h"
     "../../../Source/Includes.h"
     "../../../Source/Chord.cpp"
@@ -1612,6 +1613,7 @@ add_library( ${BINARY_NAME}
     "../../../JuceLibraryCode/JuceHeader.h"
 )
 
+set_source_files_properties("../../../Source/Types.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties("../../../Source/AppBasics.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties("../../../Source/Includes.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties("../../../Source/Chord.h" PROPERTIES HEADER_FILE_ONLY TRUE)

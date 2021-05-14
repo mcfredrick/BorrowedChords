@@ -69,7 +69,8 @@ public:
 enum class EModelChange
 {
 	RootChanged,
-	ScaleChanged
+	ScaleChanged,
+	SharpsFlats
 };
 
 typedef BCNotification<EModelChange> ModelNotification;

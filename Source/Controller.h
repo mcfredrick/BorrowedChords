@@ -54,7 +54,19 @@ public:
 		return m_model.GetHomeScale();
 	}
 	
+	ESharpsFlats GetSharpsOrFlats() override
+	{
+		return m_sharpsFlats;
+	}
+	
+	void SetSharpsOrFlats( ESharpsFlats choice ) override
+	{
+		m_sharpsFlats = choice;
+		NotifyListeners( EModelChange::SharpsFlats );
+	}
+
 private:
 	static IController* m_pController;
 	Model m_model;
+	ESharpsFlats m_sharpsFlats = ESharpsFlats::both;
 };

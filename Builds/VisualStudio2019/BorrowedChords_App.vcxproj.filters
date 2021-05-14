@@ -2685,6 +2685,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\Types.h">
+      <Filter>BorrowedChords\Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\AppBasics.h">
       <Filter>BorrowedChords\Source</Filter>
     </ClInclude>

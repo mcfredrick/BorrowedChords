@@ -24,6 +24,7 @@ namespace view
 
 		h.addColumn( "Scale" , 1, colWidth, /*minimumWidth=*/30, /*maximumWidth=*/-1/*, propertyFlags=defaultFlags, insertIndex=-1*/);
 
+
 		// Column IDs must start at 1.
 		for (int i = 0; i < num; ++i)
 		{
@@ -32,5 +33,10 @@ namespace view
 			h.addColumn(note.GetNoteDescr(), i + 2, colWidth, /*minimumWidth=*/30, /*maximumWidth=*/-1/*, propertyFlags=defaultFlags, insertIndex=-1*/);
 			pitch += scale.intervals[i];
 		}
+
+		auto chordTableModel = dynamic_cast< ChordTableModel* >( getModel() );
+		jassert( chordTableModel );
+		if ( chordTableModel )
+			chordTableModel->UpdateRowCache();
 	}
 };

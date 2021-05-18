@@ -32,25 +32,50 @@ namespace view
 			g.drawRect( g.getClipBounds() );
 		}
 
-		void paintCell (juce::Graphics & g, int rowNumber, int columnId, int /*width*/, int /*height*/, bool /*rowIsSelected*/) override
+		void paintCell( juce::Graphics& g, int rowNumber, int columnId, int /*width*/, int /*height*/, bool /*rowIsSelected*/ ) override
 		{
 			g.setColour( juce::Colours::white );
 			g.drawRect( g.getClipBounds() );
-			auto text = columnId == 1 ? GetScaleRelation( rowNumber ) : "Chord";
-			g.drawFittedText( text, g.getClipBounds(), juce::Justification::centredLeft, 1 );
+			auto row = GetCachedRow( rowNumber );
+			if ( row.has_value() )
+			{
+				juce::String text = " - ";
+				if ( columnId == 1 )
+					text = row.value().relationship;
+				else
+				{
+					auto root = row.value().root;
+					for ( int i = 0; i < ( columnId - 2 ); ++i )
+						root += row.value().scale.intervals[i];
+
+					text = root.GetNoteDescr();
+				}
+
+				g.drawFittedText( text, g.getClipBounds().reduced( 2 ), juce::Justification::centredLeft, 1 );
+			}
 		}
+
+		struct Row
+		{
+			juce::String relationship;
+			Note root;
+			Scale scale;
+		};
 
 		// TODO: cache these when something changes and look them up. We can then look up the rest of the cells in the row based
 		// on the scale represented by the row.
 		// TODO: add a column just for the relationship to the home scale.
 		// TODO: suppress juce warnings
-		juce::String GetScaleRelation( int rowNum )
+		Row GetRelatedScaleForRow( int rowNum )
 		{
 			switch ( rowNum )
 			{
 			case 0:
-				return "Home: " + GetController().GetRootNote().GetNoteDescr() + " " + GetController().GetHomeScale().name;
-				
+			{
+				auto homeScale = GetController().GetHomeScale();
+				auto rootNote = GetController().GetRootNote();
+				return { "Home: " + rootNote.GetNoteDescr() + " " + homeScale.name, rootNote, homeScale };
+			}
 			case 1:
 			{
 				auto scale = GetController().GetHomeScale();
@@ -58,14 +83,14 @@ namespace view
 				juce::String relScale = scale == MajorScale ? "Min" : "Maj";
 				auto incr = scale == MajorScale ? 9 : 3;
 				rootNote += incr;
-				return "Rel. " + relScale + ": " + rootNote.GetNoteDescr() + " " + relScale;
+				return { "Rel. " + relScale + ": " + rootNote.GetNoteDescr() + " " + relScale, rootNote, scale == MajorScale ? NaturalMinorScale : MajorScale };
 			}
 			case 2:
 			{
 				auto scale = GetController().GetHomeScale();
 				auto rootNote = GetController().GetRootNote();
 				juce::String parScale = scale == MajorScale ? "Min" : "Maj";
-				return "Par. " + parScale + ": " + rootNote.GetNoteDescr() + " " + parScale;
+				return { "Par. " + parScale + ": " + rootNote.GetNoteDescr() + " " + parScale, rootNote, scale == MajorScale ? NaturalMinorScale : MajorScale };
 			}
 			case 3:
 			{
@@ -75,12 +100,33 @@ namespace view
 				juce::String otherScale = scale == MajorScale ? "Min" : "Maj";
 				auto incr = scale == MajorScale ? 3 : 9;
 				rootNote += incr;
-				return "Rel. " + thisScale + " to Par. " + otherScale  + ": " + rootNote.GetNoteDescr() + " " + thisScale;
+				return { "Rel. " + thisScale + " to Par. " + otherScale + ": " + rootNote.GetNoteDescr() + " " + thisScale, rootNote, scale == MajorScale ? MajorScale : NaturalMinorScale };
 			}
 			}
-			return "Scale";
+			return { "Scale", Note( 0 ), MajorScale };
 		}
 
+		void UpdateRowCache()
+		{
+			rowCache.clear();
+
+			for ( int i = 0; i < 4; ++i )
+			{
+				rowCache.insert( { i, GetRelatedScaleForRow( i ) } );
+			}
+		}
+
+		std::optional<Row> GetCachedRow( int rowNum )
+		{
+			auto row = rowCache.find( rowNum );
+			jassert( row != rowCache.end() );
+			if ( row != rowCache.end() )
+				return row->second;
+
+			return std::nullopt;
+		}
+
+		std::map<int, Row> rowCache;
 		//virtual Component * 	refreshComponentForCell (int rowNumber, int columnId, bool isRowSelected, Component *existingComponentToUpdate)
 	};
 	

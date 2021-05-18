@@ -62,10 +62,6 @@ namespace view
 			Scale scale;
 		};
 
-		// TODO: cache these when something changes and look them up. We can then look up the rest of the cells in the row based
-		// on the scale represented by the row.
-		// TODO: add a column just for the relationship to the home scale.
-		// TODO: suppress juce warnings
 		Row GetRelatedScaleForRow( int rowNum )
 		{
 			switch ( rowNum )

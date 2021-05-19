@@ -29,4 +29,7 @@ public:
 
 	virtual ESharpsFlats GetSharpsOrFlats() = 0;
 	virtual void SetSharpsOrFlats( ESharpsFlats choice ) = 0;
+
+	virtual EChordComplexity GetChordComplexity() = 0;
+	virtual void SetChordComplexity( EChordComplexity complexity ) = 0;
 };

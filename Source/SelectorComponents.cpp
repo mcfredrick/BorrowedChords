@@ -31,6 +31,7 @@ namespace view
 	{
 		addAndMakeVisible( m_cmbNote );
 		addAndMakeVisible( m_cmbScale );
+		addAndMakeVisible( m_cmdChordCmplx );
 		return juce::Result::ok();
 	}
 
@@ -59,7 +60,8 @@ namespace view
 		// This method is where you should set the bounds of any child
 		// components that your component contains..
 		auto lb = getLocalBounds();
-		m_cmbNote.setBounds( lb.removeFromLeft( lb.getWidth() / 2 ) );
-		m_cmbScale.setBounds( lb );
+		m_cmbNote.setBounds( lb.removeFromLeft( lb.getWidth() / 3 ) );
+		m_cmbScale.setBounds( lb.removeFromLeft( lb.getWidth() / 2 ) );
+		m_cmdChordCmplx.setBounds( lb );
 	}
 };

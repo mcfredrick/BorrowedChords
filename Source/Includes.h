@@ -8,6 +8,8 @@
   ==============================================================================
 */
 
+#pragma once
+
 #include <JuceHeader.h>
 #include <any>
 #include <memory>

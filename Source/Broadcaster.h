@@ -70,7 +70,8 @@ enum class EModelChange
 {
 	RootChanged,
 	ScaleChanged,
-	SharpsFlats
+	SharpsFlats,
+	ChordComplexity
 };
 
 typedef BCNotification<EModelChange> ModelNotification;

@@ -65,8 +65,21 @@ public:
 		NotifyListeners( EModelChange::SharpsFlats );
 	}
 
+
+	EChordComplexity GetChordComplexity() override
+	{
+		return m_chordComplexity;
+	}
+	
+	void SetChordComplexity( EChordComplexity complexity ) override
+	{
+		m_chordComplexity = complexity;
+		NotifyListeners( EModelChange::ChordComplexity );
+	}
+
 private:
 	static IController* m_pController;
 	Model m_model;
 	ESharpsFlats m_sharpsFlats = ESharpsFlats::both;
+	EChordComplexity m_chordComplexity = EChordComplexity::seventh;
 };

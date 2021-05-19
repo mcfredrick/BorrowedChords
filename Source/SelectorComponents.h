@@ -129,6 +129,50 @@ namespace view
 		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR( ScaleSelector );
 	};
 	
+	class ChordComplexitySelector :
+		public ComponentBaseT<juce::ComboBox>,
+		public ModelListener
+	{
+	public:
+		ChordComplexitySelector() {}
+		~ChordComplexitySelector()
+		{
+			GetController().RemoveListener( this );
+		}
+
+		juce::Result onInit() override
+		{
+			GetController().AddListener( this );
+			auto currChordComplexity = GetController().GetChordComplexity();
+			for ( int i = int( EChordComplexity::none ) + 1; i < int( EChordComplexity::numOfOptions ); ++i )
+			{
+				addItem( AllChordComplexities[i], i );
+				if ( EChordComplexity(i) == currChordComplexity )
+					setSelectedId( i, juce::dontSendNotification );
+			}
+
+			onChange = [this] () {updateModel(); };
+
+			return juce::Result::ok();
+		}
+
+		void updateModel()
+		{
+			GetController().SetChordComplexity( EChordComplexity( getSelectedId() ) );
+		}
+
+		void onChanged( const ModelNotification& note ) override
+		{
+			if ( note.change == EModelChange::ChordComplexity )
+			{
+				setSelectedId( int( GetController().GetChordComplexity() ), juce::dontSendNotification );
+			}
+		}
+
+		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR( ChordComplexitySelector );
+	};
+
+
 	class SelectorComponents :
 		public ComponentBaseT<juce::Component>
 	{
@@ -142,8 +186,9 @@ namespace view
 		void resized() override;
 
 	private:
-		NoteSelector	m_cmbNote;
-		ScaleSelector	m_cmbScale;
+		NoteSelector			m_cmbNote;
+		ScaleSelector			m_cmbScale;
+		ChordComplexitySelector m_cmdChordCmplx;
 
 		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR( SelectorComponents )
 	};

@@ -18,3 +18,19 @@ enum class ESharpsFlats
 	both,
 	numOfOptions
 };
+
+enum class EChordComplexity
+{
+	none = 0,
+	triad,
+	seventh,
+	numOfOptions
+};
+
+const juce::String AllChordComplexities[] =
+{
+	"none",
+	"Triad",
+	"Seventh",
+	"numOfOptions"
+};

@@ -54,7 +54,11 @@ namespace view
 					for ( int i = 0; i < ( columnId - 3 ); ++i )
 						root += row.value().scale.intervals[i];
 
-					text = root.GetNoteDescr() + row.value().scale.seventhChords[columnId - 3];
+					auto cmplx = GetController().GetChordComplexity();
+
+					auto chord = cmplx == EChordComplexity::triad ? row.value().scale.triads[columnId - 3] : row.value().scale.seventhChords[columnId - 3];
+
+					text = root.GetNoteDescr() + chord;
 				}
 
 				g.drawFittedText( text, g.getClipBounds().reduced( 2 ), juce::Justification::centredLeft, 1 );
@@ -163,6 +167,10 @@ namespace view
 				note.change == EModelChange::SharpsFlats )
 			{
 				initColumns();
+			}
+			else if ( note.change == EModelChange::ChordComplexity )
+			{
+				repaint();
 			}
 		}
 

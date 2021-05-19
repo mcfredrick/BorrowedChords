@@ -34,21 +34,27 @@ namespace view
 
 		void paintCell( juce::Graphics& g, int rowNumber, int columnId, int /*width*/, int /*height*/, bool /*rowIsSelected*/ ) override
 		{
+			if ( rowNumber >= rowCache.size() )
+				return;
+
 			g.setColour( juce::Colours::white );
 			g.drawRect( g.getClipBounds() );
+			
 			auto row = GetCachedRow( rowNumber );
 			if ( row.has_value() )
 			{
 				juce::String text = " - ";
 				if ( columnId == 1 )
 					text = row.value().relationship;
+				else if ( columnId == 2 )
+					text = row.value().description;
 				else
 				{
 					auto root = row.value().root;
-					for ( int i = 0; i < ( columnId - 2 ); ++i )
+					for ( int i = 0; i < ( columnId - 3 ); ++i )
 						root += row.value().scale.intervals[i];
 
-					text = root.GetNoteDescr();
+					text = root.GetNoteDescr() + row.value().scale.seventhChords[columnId - 3];
 				}
 
 				g.drawFittedText( text, g.getClipBounds().reduced( 2 ), juce::Justification::centredLeft, 1 );
@@ -58,6 +64,7 @@ namespace view
 		struct Row
 		{
 			juce::String relationship;
+			juce::String description;
 			Note root;
 			Scale scale;
 		};
@@ -70,7 +77,7 @@ namespace view
 			{
 				auto homeScale = GetController().GetHomeScale();
 				auto rootNote = GetController().GetRootNote();
-				return { "Home: " + rootNote.GetNoteDescr() + " " + homeScale.name, rootNote, homeScale };
+				return { "Home", rootNote.GetNoteDescr() + " " + homeScale.name, rootNote, homeScale };
 			}
 			case 1:
 			{
@@ -79,14 +86,14 @@ namespace view
 				juce::String relScale = scale == MajorScale ? "Min" : "Maj";
 				auto incr = scale == MajorScale ? 9 : 3;
 				rootNote += incr;
-				return { "Rel. " + relScale + ": " + rootNote.GetNoteDescr() + " " + relScale, rootNote, scale == MajorScale ? NaturalMinorScale : MajorScale };
+				return { "Rel. " + relScale, rootNote.GetNoteDescr() + " " + relScale, rootNote, scale == MajorScale ? NaturalMinorScale : MajorScale };
 			}
 			case 2:
 			{
 				auto scale = GetController().GetHomeScale();
 				auto rootNote = GetController().GetRootNote();
 				juce::String parScale = scale == MajorScale ? "Min" : "Maj";
-				return { "Par. " + parScale + ": " + rootNote.GetNoteDescr() + " " + parScale, rootNote, scale == MajorScale ? NaturalMinorScale : MajorScale };
+				return { "Par. " + parScale, rootNote.GetNoteDescr() + " " + parScale, rootNote, scale == MajorScale ? NaturalMinorScale : MajorScale };
 			}
 			case 3:
 			{
@@ -96,10 +103,10 @@ namespace view
 				juce::String otherScale = scale == MajorScale ? "Min" : "Maj";
 				auto incr = scale == MajorScale ? 3 : 9;
 				rootNote += incr;
-				return { "Rel. " + thisScale + " to Par. " + otherScale + ": " + rootNote.GetNoteDescr() + " " + thisScale, rootNote, scale == MajorScale ? MajorScale : NaturalMinorScale };
+				return { "Rel. " + thisScale + " to Par. " + otherScale, rootNote.GetNoteDescr() + " " + thisScale, rootNote, scale == MajorScale ? MajorScale : NaturalMinorScale };
 			}
 			}
-			return { "Scale", Note( 0 ), MajorScale };
+			return { "Relationship", "Description", Note( 0 ), MajorScale };
 		}
 
 		void UpdateRowCache()

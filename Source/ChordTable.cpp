@@ -18,19 +18,19 @@ namespace view
 		const auto rootNote = GetController().GetRootNote();
 		int num = int( scale.intervals.size() );
 		int pitch = rootNote.pitch;
-		auto colWidth = std::max( 20, getWidth() / ( num + 1 ) );
+		auto colWidth = std::max( 20, getWidth() / ( num + 2 ) );
 
 		h.removeAllColumns();
 
-		h.addColumn( "Scale" , 1, colWidth, /*minimumWidth=*/30, /*maximumWidth=*/-1/*, propertyFlags=defaultFlags, insertIndex=-1*/);
-
+		h.addColumn( "Relation", 1, colWidth, /*minimumWidth=*/30, /*maximumWidth=*/-1/*, propertyFlags=defaultFlags, insertIndex=-1*/ );
+		h.addColumn( "Scale" , 2, colWidth, /*minimumWidth=*/30, /*maximumWidth=*/-1/*, propertyFlags=defaultFlags, insertIndex=-1*/);
 
 		// Column IDs must start at 1.
 		for (int i = 0; i < num; ++i)
 		{
 			Note note({ pitch });
 		//	DBG(note.GetNoteDescr());
-			h.addColumn(note.GetNoteDescr(), i + 2, colWidth, /*minimumWidth=*/30, /*maximumWidth=*/-1/*, propertyFlags=defaultFlags, insertIndex=-1*/);
+			h.addColumn("", i + 3, colWidth, /*minimumWidth=*/30, /*maximumWidth=*/-1/*, propertyFlags=defaultFlags, insertIndex=-1*/);
 			pitch += scale.intervals[i];
 		}
 

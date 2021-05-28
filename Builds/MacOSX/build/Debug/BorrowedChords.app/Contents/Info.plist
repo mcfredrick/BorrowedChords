@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>20E232</string>
+	<string>20E241</string>
 	<key>CFBundleDisplayName</key>
 	<string>BorrowedChords</string>
 	<key>CFBundleExecutable</key>
@@ -41,7 +41,7 @@
 	<key>DTXcodeBuild</key>
 	<string>12E262</string>
 	<key>LSMinimumSystemVersion</key>
-	<string>10.11</string>
+	<string>10.13</string>
 	<key>NSHighResolutionCapable</key>
 	<true/>
 	<key>NSHumanReadableCopyright</key>
